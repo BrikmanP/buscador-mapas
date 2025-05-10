@@ -1,4 +1,11 @@
-@import "tailwindcss";
+/* styles/globals.css */
+
+/* Importar los estilos de Leaflet */
+@import "~leaflet/dist/leaflet.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --background: #ffffff;
