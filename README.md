@@ -87,3 +87,33 @@ Editar
 Brikman Paul
 
 GitHub
+
+
+Áreas de Mejora
+Optimización de la búsqueda:
+
+Actualmente, la búsqueda se realiza a medida que el usuario escribe, pero la velocidad y precisión de las sugerencias podrían mejorarse implementando una mejor estrategia de debouncing o utilizando un sistema de autocompletado más avanzado.
+
+Soporte para más servicios de mapas:
+
+En la actualidad, la integración está limitada a Nominatim (OpenStreetMap). Sería ideal ofrecer opciones adicionales de geolocalización, como Google Maps o Mapbox, para que los usuarios puedan elegir su servicio preferido.
+
+Manejo de errores:
+
+Aunque se manejan errores básicos para la búsqueda, se podría mejorar la experiencia del usuario al mostrar mensajes de error claros en caso de fallos de la API o problemas de conectividad.
+
+Optimización de rendimiento:
+
+Para mapas más complejos con muchos marcadores, la optimización del rendimiento puede ser crucial. Se podría implementar la carga perezosa de los marcadores o la agrupación de estos para mejorar la velocidad de carga.
+
+Interfaz de usuario (UI) mejorada:
+
+Aunque la interfaz es funcional, podría mejorarse con más interactividad, como botones para cambiar el tipo de mapa, cambiar la vista o hacer zoom de manera más accesible.
+
+Soporte para dispositivos móviles:
+
+Asegurarse de que el mapa y la barra de búsqueda sean completamente funcionales en dispositivos móviles, adaptándose a diferentes tamaños de pantalla.
+
+Estilo de marcador más atractivo:
+
+El marcador actual es funcional, pero podría ser más atractivo visualmente. Se podría personalizar aún más utilizando animaciones o diseñando un ícono más distintivo.
