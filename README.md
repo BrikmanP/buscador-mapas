@@ -1,40 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Buscador de Ubicaciones con Mapa Interactivo
 
-## Getting Started
+![Vista previa del mapa](./mapa.png)
 
-First, run the development server:
+Aplicación web desarrollada como parte de una prueba técnica. Permite buscar ubicaciones y visualizarlas en un mapa interactivo utilizando Leaflet.js, con funcionalidades modernas como sugerencias, clic en el mapa y un buscador flotante.
+
+---
+
+## 🧠 Decisiones Técnicas
+
+- **Leaflet.js + OpenStreetMap**: Se eligió Leaflet por ser open-source, ligero y sin necesidad de claves API. Se usó Carto como proveedor de tiles por su diseño claro.
+- **Nominatim API**: Para geocodificación directa (buscar por texto) e inversa (clic en el mapa). No requiere autenticación.
+- **Tailwind CSS**: Utilizado por su enfoque utilitario y facilidad para crear UI moderna sin necesidad de hojas de estilo complejas.
+- **`lodash.debounce`**: Implementado para reducir el número de llamadas a la API de Nominatim mientras el usuario escribe.
+- **Carga dinámica del mapa (`ssr: false`)**: Porque Leaflet depende de `window` y no es compatible con SSR en Next.js.
+
+---
+
+## 📦 Dependencias Principales
+
+- `react`
+- `next`
+- `leaflet`
+- `lodash.debounce`
+- `axios`
+- `tailwindcss`
+
+---
+
+## ⚙️ Instalación y Ejecución
+
+### 1. Clonar el repositorio
 
 ```bash
+git clone https://github.com/tu-usuario/buscador-mapas.git
+cd buscador-mapas
+
+2. Instalar dependencias
+npm install
+3. Ejecutar servidor de desarrollo
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+El proyecto estará disponible en http://localhost:3000
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+🔑 Configuración de API
+API utilizada: Nominatim
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+No requiere autenticación ni claves.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+Se recomienda limitar solicitudes a 1 por segundo. Se aplica debounce de 300ms para cumplir esta recomendación.
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+🎯 Funcionalidades
+Mapa interactivo con marcador rojo personalizado.
 
-## Learn More
+Búsqueda de ubicaciones con autocompletado.
 
-To learn more about Next.js, take a look at the following resources:
+Clic sobre el mapa para seleccionar una nueva ubicación.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+El buscador es flotante, visible en todo momento.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Responsive y diseño claro.
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+🚧 Limitaciones y Áreas de Mejora
+No se eliminan marcadores anteriores tras múltiples clics.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+No hay validación de errores si la API falla.
+
+No hay navegación con teclado en las sugerencias.
+
+No hay despliegue en producción (puede usarse Vercel).
+
+📁 Estructura del Proyecto
+bash
+Copiar
+Editar
+/components
+  └── Map.tsx             # Componente del mapa y buscador
+/pages
+  └── index.tsx           # Página principal
+/public
+  └── mapa.png            # Imagen de vista previa usada en el README
+/styles
+  └── globals.css         # Estilos base de Tailwind
+
+  👤 Autor
+Brikman Paul
+
+GitHub
